@@ -60,8 +60,8 @@ ROBOTSTXT_OBEY = False
 #    'scrapy.extensions.telnet.TelnetConsole': None,
 #}
 
-Configure item pipelines
-See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+# Configure item pipelines
+# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'airport.pipelines.AirportPipeline': 300,
 }
