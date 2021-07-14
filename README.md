@@ -1,12 +1,4 @@
-# 计网作业：爬虫
-
-> [温州机场数据地址](http://www.wzair.cn/lkfw/hbxx/jrdg/index.html?v=1606439135598&rxLoad=1&_rand=1606586459057)
-
-原网站概览：
-
-![](img/2020-11-29-19-40-36.png)
-
-## 使用说明
+# 爬虫使用说明
 
 ### 环境配置方法
 
@@ -53,7 +45,7 @@ se = requests.session()
 post_url = "http://121.40.33.186:12800/services/wzairAuto/arrival?callback=jsonp1606647111005&_=1606647111010"
 while True:
     ti = datetime.datetime.now().strftime('%Y-%m-%d')
-    filename = '[温州机场]'+ti+'.json'
+    filename = '[数据]'+ti+'.json'
     data = se.get(post_url).text.replace("'", '"').replace('/ ', '/')
     with open(filename,"w", encoding="utf-8") as f:
         f.write(data)
@@ -90,45 +82,11 @@ driver.close()
 
 #### 数据截图
 
-![](img/2020-11-29-19-38-58.png)
-
-共125条
-
-#### 字段说明
-
-以爬得的第一条数据为例：
-
-```json
-    {
-        "air_attr": "落地", // 状态
-        "air_company": "四川航空", // 航空公司
-        "air_etime1": "08:25", // 预计到达
-        "air_etime2": "08:26", // 实际到达
-        "air_etime3": "08:25", // 多余字段
-        "air_from": "三亚", // 出发地
-        "air_id": 1734569, // 航班编号
-        "air_memo": "正班", // 备注
-        "air_number": "3U8825", // 航班号
-        "air_stay": "", // 经停站
-        "air_stime1": "06:05", // 计划起飞
-        "air_stime2": "06:05", // 实际起飞
-        "air_time": 1606610700000, // 时间
-        "air_to": "温州", // 到达地
-        "air_type": 0, // 类型
-        "via3": "", // 冗余字段
-        "via4": "", // 冗余字段
-        "viac": "" // 冗余字段
-    }
-```
+![image-20210714121124696](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210714121124696.png)
 
 ### selenium法
 
 #### 数据截图
 
-![](img/2020-12-03-10-12-35.png)
+![image-20210714121145335](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210714121145335.png)
 
-#### 字段说明
-
-与网页中的表格项一一对应。分别是：
-
-序号 航班号 航空公司 出发地 计划起飞 实际起飞 预计到达 实际到达 经停站 状态 备注

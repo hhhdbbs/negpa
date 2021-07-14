@@ -13,9 +13,9 @@ with open(filename,"w", encoding="utf-8") as f:
         options=chrome_options)
     for i in range(1,2):
         driver.get('https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_3/')
-        time.sleep(5)
+        time.sleep(1)
         tr = driver.find_elements_by_xpath("//div[@id='nationTable']/table/tbody/tr")
         for i in tr:
-            print(i.text)
+            print(str(i)+i.text)
             f.write(i.text)
 driver.close()
